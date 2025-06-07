@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить сеанс</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Добавить новый сеанс</h2>
+    <form th:action="@{/sessions/add}" th:object="${session}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Название фильма</label>
+            <input type="text" class="form-control" th:field="*{movieTitle}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Киностудия</label>
+            <input type="text" class="form-control" th:field="*{studio}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Дата и время</label>
+            <input type="datetime-local" class="form-control" th:field="*{sessionDateTime}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Количество билетов</label>
+            <input type="number" class="form-control" th:field="*{ticketCount}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a th:href="@{/sessions}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+</body>
+</html>
